@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NoteApp from './components/NoteApp';
+import TodoApp from './components/TodoApp'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 ReactDOM.render(
   <React.StrictMode>
-    <NoteApp />
+    <TodoApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
