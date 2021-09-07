@@ -7,7 +7,7 @@ const Navbar = ({links}:any) =>
     </button>
     <div className="collapse navbar-collapse" id="navbarText">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-     {links.map((link:any)=><li className="nav-item">{link}</li>)}
+     {links.map((link:any, index:number)=><li key={index} className="nav-item">{link}</li>)}
       </ul>
     <span className="navbar-text">
         Create a list of errands!
