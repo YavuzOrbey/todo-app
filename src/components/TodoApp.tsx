@@ -28,7 +28,7 @@ const TodoApp = () => {
       setTodos(newTodoList)
     }
     const updateToDo = (id:number) => {
-
+      //console.log(id)
      //const todo = todos.find((todo)=>todo.id===id)
      //const anotherTodo = todos.find((todo)=>todo.id===id);
       const indexOfElement = todos.findIndex((todo)=>todo.id===id)
@@ -53,45 +53,46 @@ const TodoApp = () => {
     <Link to="/home" className="nav-link">Home</Link>,
     <Link to="/todos" className="nav-link">Todos</Link>,
     <Link to="/add-todo" className="nav-link">Add ToDo</Link>]
+
   const sidebarLinks = todos.map((todo)=> {
     let styling:object = {'borderRadius':'5px', 'padding': '3px', 'color': 'white', 'marginRight': '10px' }
     switch(todo.priority){
       case Priority.HIGH:
-
         styling = {...styling, backgroundColor: 'rgba(255, 65, 40, 0.75)'}
         break;
-      case Priority.MEDIUM:
 
+      case Priority.MEDIUM:
         styling = {...styling, backgroundColor: ' rgba(238, 255, 0, 0.75)'}
         break;
+
       case Priority.LOW:
         styling = {...styling, backgroundColor: 'rgba(136, 255, 24, 0.75)'}
         break;
     }
-  return <div className="todo-list-item"><span style={styling} >{todo.priority}</span><Link className="text-white text-decoration-none" key={todo.id} to={`/todos/${todo.id}`}>{todo.text}</Link></div>
-  
-  
-
+  return <div className="todo-list-item">
+    <span style={styling} >{todo.priority}</span>
+    <Link className="text-white text-decoration-none" key={todo.id} to={`/todos/${todo.id}`}>{todo.text}</Link>
+    </div>
   })
-    return (<div className="note-app">
-    <Router>
-      <Navbar links={links}/>
-      <Sidebar links={sidebarLinks} />
-      <Switch>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route exact path="/todos">
-          <TodosPage todos={todos} deleteTodo={deleteToDo} updateTodo={updateToDo}/>
-        </Route>
-        <Route path="/todos/:todoId"  children={<SingleTodo todos={todos} deleteTodo={deleteToDo} updateTodo={updateToDo}/>}  />
-        <Route path="/add-todo">
-          <AddTodosPage addToDo={addToDo}  idNum={idNum} setIdNum={setIdNum}/>
-        </Route>
-      </Switch>
-    </Router>
-
-</div>)
+  return (
+    <div className="note-app">
+      <Router>
+        <Navbar links={links}/>
+        <Sidebar links={sidebarLinks} />
+        <Switch>
+          <Route path="/home">
+            <HomePage />
+          </Route>
+          <Route exact path="/todos">
+            <TodosPage todos={todos} deleteTodo={deleteToDo} updateTodo={updateToDo}/>
+          </Route>
+          <Route path="/todos/:todoId"  children={<SingleTodo todos={todos} deleteTodo={deleteToDo} updateTodo={updateToDo}/>}  />
+          <Route path="/add-todo">
+            <AddTodosPage addToDo={addToDo}  idNum={idNum} setIdNum={setIdNum}/>
+          </Route>
+        </Switch>
+      </Router>
+    </div>)
 }
 
 

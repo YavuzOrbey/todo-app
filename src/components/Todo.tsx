@@ -12,14 +12,13 @@ const Todo = ({todo, deleteTodo, updateTodo}: {todo:TodoInterface, deleteTodo: (
     const {id, text, datetime, user, completed, priority} = todo;
 
     const[isCompleted, setisCompleted] = useState(completed)
-    console.log(id, isCompleted)
 
     useEffect(()=>{
-      console.log("component mounted")
+      //console.log("component mounted")
     }, [])
 
     useEffect(()=> {
-      console.log("isCompleted changed")
+      //console.log("isCompleted changed")
     }, [isCompleted])
     return (
     <div className={priority.toString().toLowerCase() + '-priority card todo m-3'} style={{width: '18rem'}}>

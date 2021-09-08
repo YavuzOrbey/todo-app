@@ -2,12 +2,12 @@
 
 }
 .high-priority{
-    background-color: rgba(255, 65, 40, 0.75) !important;
+    background-color: #ffc6bf !important;
 
 }
 .medium-priority{
-    background-color: rgba(238, 255, 0, 0.75) !important;
+    background-color: #77979E !important;
 }
 .low-priority{
-    background-color: rgba(136, 255, 24, 0.75) !important;
+    background-color:#D4EBB0 !important;
 }
