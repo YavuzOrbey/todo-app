@@ -13,12 +13,23 @@ const Todo = ({todo, deleteTodo, updateTodo}: {todo:TodoInterface, deleteTodo: (
 
     const[isCompleted, setisCompleted] = useState(completed)
 
+
+    useEffect(()=> {
+    console.log("This callback will run on every rerender")
+    window.addEventListener('click', ()=>{
+        console.log('clicked')
+      })
+    
+  })
     useEffect(()=>{
       //console.log("component mounted")
     }, [])
 
     useEffect(()=> {
-      //console.log("isCompleted changed")
+      console.log("isCompleted changed")
+      return () => {
+        console.log(new Date().getMilliseconds(), 'cleanup function')
+      }
     }, [isCompleted])
     return (
     <div className={priority.toString().toLowerCase() + '-priority card todo m-3'} style={{width: '18rem'}}>

@@ -2,7 +2,7 @@ import {
     BrowserRouter as Router,
     Switch, Route, Link
   } from "react-router-dom"
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import HomePage from './HomePage'
 import TodosPage from './TodosPage'
 import AddTodosPage from './AddTodosPage'
